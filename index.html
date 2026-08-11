@@ -4,159 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ykuekii</title>
+<link rel="stylesheet" href="/common.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
-
-  :root{
-    --bg: #EDF4F6;
-    --ink: #16191C;
-    --ink-soft: #55666D;
-    --accent: #2E9FD1;
-    --line: #CBE0E7;
-    --card: #F7FBFC;
-  }
-
-  *{ margin:0; padding:0; box-sizing:border-box; }
-
-  html{ scroll-behavior: smooth; }
-
-  body{
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Zen Kaku Gothic New', 'Space Grotesk', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  ::selection{ background: var(--accent); color: var(--ink); }
-
-  a{ color: inherit; text-decoration: none; }
-
-  .wrap{
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  /* ---------- NAV ---------- */
-  header{
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(241,240,236,0.85);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex;
-    align-items:center;
-    justify-content: space-between;
-    height: 64px;
-  }
-  .logo{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    letter-spacing: 0.02em;
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-  .logo .dot{
-    width:8px; height:8px;
-    background: var(--accent);
-    display:inline-block;
-    border-radius: 2px;
-  }
-  .navlinks{
-    display:flex;
-    gap: 28px;
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-  .navlinks a{ transition: color .2s ease; position:relative; }
-  .navlinks a:hover{ color: var(--ink); }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    padding: 120px 0 100px;
-    position: relative;
-  }
-  .hero .eyebrow{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 22px;
-    display:flex;
-    align-items:center;
-    gap: 10px;
-  }
-  .eyebrow::before{
-    content:'';
-    width: 24px; height: 1px;
-    background: var(--ink-soft);
-  }
-  .hero h1{
-    font-family: 'Zen Kaku Gothic New', 'Space Grotesk', sans-serif;
-    font-weight: 500;
-    font-size: clamp(48px, 9vw, 92px);
-    line-height: 1.02;
-    letter-spacing: -0.01em;
-  }
-  .hero h1 em{
-    font-style: normal;
-    font-weight: 700;
-    color: var(--accent);
-  }
-  .hero p{
-    margin-top: 26px;
-    max-width: 480px;
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-  }
-
-  .blockrow{
-    margin-top: 46px;
-    display:flex;
-    gap: 6px;
-  }
-  .blockrow span{
-    width: 26px; height: 10px;
-    background: var(--line);
-    border-radius: 2px;
-    animation: grow 2.4s ease-in-out infinite;
-  }
-  .blockrow span:nth-child(1){ background: var(--accent); animation-delay: 0s; }
-  .blockrow span:nth-child(2){ animation-delay: .15s; }
-  .blockrow span:nth-child(3){ animation-delay: .3s; }
-  .blockrow span:nth-child(4){ animation-delay: .45s; }
-  .blockrow span:nth-child(5){ animation-delay: .6s; }
-  @keyframes grow{
-    0%, 100%{ opacity: .35; }
-    50%{ opacity: 1; }
-  }
-
-  /* ---------- SECTION HEADS ---------- */
-  section{ padding: 90px 0; border-top: 1px solid var(--line); }
-  .sectionhead{
-    display:flex;
-    align-items: baseline;
-    gap: 14px;
-    margin-bottom: 48px;
-  }
-  .sectionhead .num{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--accent);
-  }
-  .sectionhead h2{
-    font-family: 'Zen Kaku Gothic New', 'Space Grotesk', sans-serif;
-    font-weight: 500;
-    font-size: 30px;
-  }
-
   /* ---------- ABOUT ---------- */
   .about-grid{
     display:grid;
@@ -214,9 +63,8 @@
     transition: padding-left .25s ease, opacity .2s ease;
     cursor: pointer;
   }
-  .work:hover{ opacity: 0.75; }
+  .work:hover{ opacity: 0.75; padding-left: 10px; }
   .work:first-child{ padding-top: 0; }
-  .work:hover{ padding-left: 10px; }
   .work .idx{
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
@@ -249,6 +97,7 @@
   }
 
   /* ---------- CONTACT ---------- */
+  /* ページ内には contact というクラスが指定された要素がないため、このルールセットは必要ありません (削除を推奨します) */
   .contact{
     display:flex;
     justify-content: space-between;
@@ -286,55 +135,22 @@
     transition: all .2s ease;
   }
   .links a:hover::after{ opacity: 1; transform: translateX(0); }
-
-  footer{
-    padding: 40px 0 60px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    display:flex;
-    justify-content: space-between;
-  }
-  footer a{ transition: color .2s ease; }
-  footer a:hover{ color: var(--ink); }
-
-  /* ---------- reveal on scroll ---------- */
-  .reveal{
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity .7s ease, transform .7s ease;
-  }
-  .reveal.in{
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .reveal{ opacity:1; transform:none; transition:none; }
-    .blockrow span{ animation: none; opacity: .8; }
-  }
+  /* ↑ ここまで */
 
   @media (max-width: 700px){
     .about-grid{ grid-template-columns: 1fr; gap: 32px; }
     .work{ grid-template-columns: 40px 1fr; }
     .work .tag{ grid-column: 2; justify-self: start; margin-top: 4px; }
-    .navlinks{ gap: 16px; }
-    .hero{ padding: 90px 0 70px; }
-  }
-
-  :focus-visible{
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
   }
 </style>
 </head>
-<body>
+<body data-page="index">
 
 <header>
   <nav class="wrap">
     <div class="logo"><span class="dot"></span>ykuekii</div>
     <div class="navlinks">
-      <a href="#intro">about</a>
+      <a href="#intro" class="current">about</a>
       <a href="about.html">profile</a>
       <a href="hobbies.html">hobbies</a>
       <a href="diary.html">diary</a>
@@ -420,9 +236,9 @@
 
 
 <footer>
-  <div class="wrap" style="display:flex; justify-content:space-between; align-items:flex-start; width:100%; flex-wrap:wrap; gap:16px;">
+  <div class="wrap">
     <span>© ykuekii</span>
-    <div style="display:flex; gap:18px; flex-wrap:wrap;">
+    <div>
       <a href="https://scratch.mit.edu/users/ykuekii/" target="_blank" rel="noopener">Scratch</a>
       <a href="https://scratch.mit.edu/users/-sub-ykuekii-/" target="_blank" rel="noopener">Scratch (sub)</a>
       <a href="https://note.com/yukkkun" target="_blank" rel="noopener">note</a>
@@ -430,18 +246,7 @@
   </div>
 </footer>
 
-<script>
-  const items = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  items.forEach(i=>io.observe(i));
-</script>
+<script src="reveal-anim.js"></script>
 
 </body>
 </html>

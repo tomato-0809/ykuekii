@@ -4,124 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>hobbies — ykuekii</title>
+<link rel="stylesheet" href="/common.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
-
-  :root{
-    --bg: #EDF4F6;
-    --ink: #16191C;
-    --ink-soft: #55666D;
-    --accent: #2E9FD1;
-    --line: #CBE0E7;
-    --card: #F7FBFC;
-  }
-
-  *{ margin:0; padding:0; box-sizing:border-box; }
-  html{ scroll-behavior: smooth; }
-
-  body{
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Zen Kaku Gothic New', 'Space Grotesk', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  ::selection{ background: var(--accent); color: #fff; }
-  a{ color: inherit; text-decoration: none; }
-
-  .wrap{
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  header{
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(237,244,246,0.85);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex;
-    align-items:center;
-    justify-content: space-between;
-    height: 64px;
-  }
-  .logo{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    letter-spacing: 0.02em;
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-  .logo .dot{
-    width:8px; height:8px;
-    background: var(--accent);
-    display:inline-block;
-    border-radius: 2px;
-  }
-  .navlinks{
-    display:flex;
-    gap: 28px;
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-  .navlinks a{ transition: color .2s ease; }
-  .navlinks a:hover{ color: var(--ink); }
-  .navlinks a.current{ color: var(--ink); }
-
-  .pagehead{ padding: 90px 0 70px; }
-  .pagehead .eyebrow{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 22px;
-    display:flex;
-    align-items:center;
-    gap: 10px;
-  }
-  .pagehead .eyebrow::before{
-    content:'';
-    width: 24px; height: 1px;
-    background: var(--ink-soft);
-  }
-  .pagehead h1{
-    font-weight: 700;
-    font-size: clamp(38px, 7vw, 64px);
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-  }
-  .pagehead h1 .accent{ color: var(--accent); }
-  .pagehead p{
-    margin-top: 22px;
-    max-width: 520px;
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--ink-soft);
-  }
-
-  section{ padding: 80px 0; border-top: 1px solid var(--line); }
-  .sectionhead{
-    display:flex;
-    align-items: baseline;
-    gap: 14px;
-    margin-bottom: 40px;
-  }
-  .sectionhead .num{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--accent);
-  }
-  .sectionhead h2{
-    font-weight: 700;
-    font-size: 26px;
-  }
   .sectionbody{
     max-width: 620px;
     font-size: 15.5px;
@@ -194,41 +78,12 @@
   .back-link:hover{ color: var(--ink); border-color: var(--ink); }
   .back-link:hover::before{ transform: translateX(-4px); }
 
-  footer{
-    padding: 40px 0 60px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    display:flex;
-    justify-content: space-between;
-  }
-  footer a{ transition: color .2s ease; }
-  footer a:hover{ color: var(--ink); }
-
-  .reveal{
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity .7s ease, transform .7s ease;
-  }
-  .reveal.in{ opacity: 1; transform: translateY(0); }
-
-  @media (prefers-reduced-motion: reduce){
-    .reveal{ opacity:1; transform:none; transition:none; }
-  }
-
   @media (max-width: 700px){
-    .navlinks{ gap: 16px; }
-    .pagehead{ padding: 70px 0 50px; }
     .hobby-row{ grid-template-columns: 1fr; gap: 6px; }
-  }
-
-  :focus-visible{
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
   }
 </style>
 </head>
-<body>
+<body data-page="hobbies">
 
 <header>
   <nav class="wrap">
@@ -242,7 +97,7 @@
   </nav>
 </header>
 
-<section class="pagehead">
+<section class="hero">
   <div class="wrap">
     <p class="eyebrow">Off Scratch</p>
     <h1>Scratchの<span class="accent">外</span>のこと。</h1>
@@ -318,9 +173,9 @@
 </section>
 
 <footer>
-  <div class="wrap" style="display:flex; justify-content:space-between; align-items:flex-start; width:100%; flex-wrap:wrap; gap:16px;">
+  <div class="wrap">
     <span>© ykuekii</span>
-    <div style="display:flex; gap:18px; flex-wrap:wrap;">
+    <div>
       <a href="https://scratch.mit.edu/users/ykuekii/" target="_blank" rel="noopener">Scratch</a>
       <a href="https://scratch.mit.edu/users/-sub-ykuekii-/" target="_blank" rel="noopener">Scratch (sub)</a>
       <a href="https://note.com/yukkkun" target="_blank" rel="noopener">note</a>
@@ -328,18 +183,7 @@
   </div>
 </footer>
 
-<script>
-  const items = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  items.forEach(i=>io.observe(i));
-</script>
+<script src="reveal-anim.js"></script>
 
 </body>
 </html>
